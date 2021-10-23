@@ -8,7 +8,7 @@ namespace Generics
 {
     class Generics
     {
-        public static double MaxNumber(double firstNumber, double secondNumber, double thirdNumber)
+        public static string MaxNumber(string firstNumber, string secondNumber, string thirdNumber)
         {
             if (firstNumber.CompareTo(secondNumber) > 0 && firstNumber.CompareTo(thirdNumber) > 0)
             {
