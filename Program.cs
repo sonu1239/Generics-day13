@@ -10,7 +10,7 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            int Result = Generics.MaxNumber(15, 20, 25);
+            double Result = Generics.MaxNumber(10.10, 20.10, 30.10);
             Console.WriteLine("{0} is max number", Result);
             Console.ReadLine();
         }
