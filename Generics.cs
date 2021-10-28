@@ -6,25 +6,42 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    class Generics
-    {
-        public static string MaxNumber(string firstNumber, string secondNumber, string thirdNumber)
+    
+    
+        class Generics<T> where T : IComparable
         {
-            if (firstNumber.CompareTo(secondNumber) > 0 && firstNumber.CompareTo(thirdNumber) > 0)
+            private T first, second, third;                //instance variable
+            public Generics(T first, T second, T third)   //constructor
             {
-                return firstNumber;
+                this.first = first;
+                this.second = second;
+                this.third = third;
             }
-            if (secondNumber.CompareTo(firstNumber) > 0 && secondNumber.CompareTo(thirdNumber) > 0)
+            public static T MaxValue(T first, T second, T third)
             {
-                return secondNumber;
+
+                if (first.CompareTo(second) > 0 && first.CompareTo(third) > 0)
+                {
+                    return first;                                  ////returning value if condition is true
+                }
+                if (second.CompareTo(first) > 0 && second.CompareTo(third) > 0)
+                {
+                    return second;
+                }
+                if (third.CompareTo(first) > 0 && third.CompareTo(second) > 0)
+                {
+                    return third;
+                }
+                return default;
             }
-            if (thirdNumber.CompareTo(firstNumber) > 0 && thirdNumber.CompareTo(secondNumber) > 0)
+            public T MaximumValue()
             {
-                return thirdNumber;
+                Generics<T>.MaxValue(this.first, this.second, this.third);
+                T max = Generics<T>.MaxValue(this.first, this.second, this.third);
+                return max;
             }
-            return default;
+
+
         }
-
-
-    }
+    
 }
