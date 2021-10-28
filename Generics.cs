@@ -6,42 +6,36 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    
-    
-        class Generics<T> where T : IComparable
+
+
+    class Generics<T> where T : IComparable
+    {
+        public T[] value;  //instance variable
+
+        public Generics(T[] value)      //constructor
         {
-            private T first, second, third;                //instance variable
-            public Generics(T first, T second, T third)   //constructor
-            {
-                this.first = first;
-                this.second = second;
-                this.third = third;
-            }
-            public static T MaxValue(T first, T second, T third)
-            {
-
-                if (first.CompareTo(second) > 0 && first.CompareTo(third) > 0)
-                {
-                    return first;                                  ////returning value if condition is true
-                }
-                if (second.CompareTo(first) > 0 && second.CompareTo(third) > 0)
-                {
-                    return second;
-                }
-                if (third.CompareTo(first) > 0 && third.CompareTo(second) > 0)
-                {
-                    return third;
-                }
-                return default;
-            }
-            public T MaximumValue()
-            {
-                Generics<T>.MaxValue(this.first, this.second, this.third);
-                T max = Generics<T>.MaxValue(this.first, this.second, this.third);
-                return max;
-            }
-
-
+            this.value = value;
         }
+        public T[] Sort(T[] values)
+        {
+            Array.Sort(values);
+            return values;
+        }
+        public T MaxValue(params T[] values)
+        {
+            var sorted_values = Sort(values);
+            return sorted_values[1];
+        }
+        public T MaxMethod()
+        {
+            var max = MaxValue(this.value);
+            return max;
+        }
+        public void PrintMaxValue()
+        {
+            var max = MaxValue(this.value);
+            Console.WriteLine("Maximum value is " + max);
+        }
+    }
     
 }

@@ -10,18 +10,19 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            // creating object of method and sorting into variable
-            Generics<int> obj = new Generics<int>(3, 2, 6);
-            Generics<double> obj1 = new Generics<double>(1.2, 5.3, 10.1);
-            Generics<string> obj2 = new Generics<string>("Sonu", "sanny", "sana");
+            // creating object 
+            int[] arra = { 123, 456, 78, 358, 456 };
+            double[] arr = { 12.3, 45.6, 7.8, 35.8, 45.8 };
+            Generics<int> generic = new Generics<int>(arra);
+            Generics<double> gener = new Generics<double>(arr);
+            generic.PrintMaxValue();
+            gener.PrintMaxValue();
 
-            //display result
-
-            Console.WriteLine("Maximum integer number : " + obj.MaximumValue());
-            Console.WriteLine("maximum float number : " + obj1.MaximumValue());
-            Console.WriteLine("maximum string value : " + obj2.MaximumValue());
             Console.ReadLine();
 
         }
     }
+
 }
+    
+
